@@ -1,1 +1,80 @@
+:root {
+  --blue: #0A64A4;
+  --cream: #F6F4EB;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  font-family: Tahoma, sans-serif;
+}
+
+/* TASKBAR */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--blue);
+  color: white;
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* START MENU */
+.start-menu {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  left: 5px;
+  background: #ddd;
+  border: 2px solid #333;
+  width: 150px;
+}
+
+.start-menu div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.start-menu div:hover {
+  background: var(--blue);
+  color: white;
+}
+
+/* WINDOWS */
+.window {
+  position: fixed;
+  width: 300px;
+  height: 200px;
+  background: var(--cream);
+  border: 3px solid #333;
+  display: none;
+  top: 100px;
+  left: 100px;
+  box-shadow: 5px 5px 0 black;
+}
+
+.title-bar {
+  background: var(--blue);
+  color: white;
+  padding: 5px;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  padding: 10px;
+}
+
+/* RESIZE */
+.resize {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  background: gray;
+  cursor: nwse-resize;
+}
 
