@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TASKBAR -->
+<div class="taskbar">
+  <span onclick="toggleStart()">🪟 Start</span>
+</div>
+
+<!-- START MENU -->
+<div class="start-menu" id="start">
+  <div onclick="openWindow('about')">About Me</div>
+  <div onclick="openWindow('projects')">Projects</div>
+  <div onclick="openWindow('contact')">Contact</div>
+</div>
+
+<!-- WINDOWS -->
+
+<div class="window" id="about-window">
+  <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+    About Me
+    <span onclick="closeWindow('about')">✖</span>
+  </div>
+  <div class="content">
+    <p>Hi, I'm Anmol 👋</p>
+    <p>This is my retro Windows portfolio.</p>
+  </div>
+  <div class="resize" onmousedown="resizeStart(event, this.parentElement)"></div>
+</div>
+
+<div class="window" id="projects-window">
+  <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+    Projects
+    <span onclick="closeWindow('projects')">✖</span>
+  </div>
+  <div class="content">
+    <p>Project 1</p>
+    <p>Project 2</p>
+  </div>
+  <div class="resize" onmousedown="resizeStart(event, this.parentElement)"></div>
+</div>
+
+<div class="window" id="contact-window">
+  <div class="title-bar" onmousedown="dragStart(event, this.parentElement)">
+    Contact
+    <span onclick="closeWindow('contact')">✖</span>
+  </div>
+  <div class="content">
+    <p>Email: your@email.com</p>
+  </div>
+  <div class="resize" onmousedown="resizeStart(event, this.parentElement)"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
