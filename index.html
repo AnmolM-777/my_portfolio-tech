@@ -111,6 +111,21 @@
   </div>
 </div>
 
+  <div class="window" id="botWindow">
+  <div class="title-bar">
+    Assistant
+    <span onclick="closeBot()">X</span>
+  </div>
+
+  <div class="content" id="botChat"></div>
+
+  <div style="display:flex;border-top:1px solid #999">
+    <input id="botInput" placeholder="Type a message..."
+           style="flex:1;border:none;padding:5px;font-family:Tahoma;">
+    <button onclick="sendBot()">Send</button>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
