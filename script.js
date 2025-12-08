@@ -107,5 +107,33 @@ function respond(txt) {
   else
     botReply("I didn't understand. Try typing 'help'.");
 }
+document.getElementById("about-content").innerHTML = `
+<b>Name:</b> Anmol<br><br>
+I am a B.Tech Electrical Engineering student at IIT Jodhpur (2024–2028).
+`;
+
+document.getElementById("edu-content").innerHTML = `
+<b>IIT Jodhpur</b><br>
+B.Tech Electrical Engineering (2024–2028)<br><br>
+
+<b>Krishna Public School</b><br>
+Class 12: 95.4%<br>
+Class 10: 94.3%
+`;
+
+document.getElementById("skills-content").innerHTML = `
+• C / C++<br>
+• HTML, CSS, JS<br>
+• Git & GitHub<br>
+• Python (basic)<br>
+• Problem Solving
+`;
+
+document.getElementById("contact-content").innerHTML = `
+Email: your@email.com<br>
+LinkedIn: linkedin.com/in/yourname<br>
+GitHub: github.com/AnmolM-777
+`;
+
 
 
