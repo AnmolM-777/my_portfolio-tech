@@ -30,7 +30,11 @@ setInterval(() => {
 fetch("data/profile.json").then(r => r.json()).then(d => {
   const a = document.getElementById("about-content");
   if (a)
-    a.innerHTML = `<h3>${d.name}</h3><p>${d.role}</p><p>${d.bio}</p><p>${d.location}</p>`;
+    a.innerHTML = `
+      <h3>${d.name}</h3>
+      <p>${d.interests}</p>
+      <p>${d.location}</p>
+    `;
 }).catch(e => console.log("profile.json not found, using static data"));
 
 fetch("data/education.json").then(r => r.json()).then(list => {
