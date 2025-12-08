@@ -1,1 +1,38 @@
+[
+  {
+    "institution": "Indian Institute of Technology, Jodhpur",
+    "duration": "July 2024 – May 2028 (Expected)",
+    "degree": "B.Tech in Computer Science and Engineering",
+    "details": [
+      "Relevant Coursework:",
+      "Data Structures and Algorithms",
+      "Foundation of Quantum Information",
+      "Introduction to Computer Science",
+      "Mathematics for Computing",
+      "Pattern Recognition and Machine Learning"
+    ]
+  },
+  {
+    "institution": "Atomic Energy Central School NO.2",
+    "duration": "April 2012 – May 2022",
+    "degree": "All India Senior School Examination (AISSE)",
+    "details": [
+      "AISSE 2022:",
+      "Physics, Chemistry, Mathematics, English, Computer Science, Social Science, Hindi",
+      "Grade: 97.6%",
+      "",
+    ]
+  }
+  {
+    "institution": "PACE Junior Science College",
+    "duration": "May 2022- May 2024",
+    "degree": "All India Senior School Certificate Examination (AISSCE)",
+    "details": [
+      "AISSCE 2024:",
+      "Physics, Chemistry, Mathematics, English, Computer Science",
+      "Grade: 92.7%",
+      "",
+    ]
+  }
+]
 
