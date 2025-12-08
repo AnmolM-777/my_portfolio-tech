@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background: #3a6ea5;
+  background: url("assets/wallpapers/win98.png") no-repeat center center fixed;
+  background-size: cover;
   font-family: Tahoma, sans-serif;
 }
 
