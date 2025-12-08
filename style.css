@@ -10,13 +10,15 @@ body {
 ======================= */
 
 .icon-column {
-  position: fixed;
-  left: 15px;
-  top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  position:fixed;
+  left:15px;
+  top:15px;
+  display:grid;
+  grid-template-columns: repeat(7, 80px);
+  grid-auto-rows: 95px;
+  gap:16px;
 }
+
 
 .desktop-icon {
   width: 72px;
