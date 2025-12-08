@@ -76,7 +76,7 @@ function openBot() {
   const bot = document.getElementById("bot-window");
   if (bot) {
     bot.style.display = "block";
-    botReply("Hi! I'm your assistant 🤖\n\nDouble-click an icon to open sections like:\n- About\n- Education\n- Projects\n- Skills\n- Contact\n\nType 'help' to see more.");
+    botReply("Hi! I'm your assistant \n\nDouble-click an icon to open sections like:\n- About\n- Education\n- Projects\n- Skills\n- Contact\n\nType 'help' to see more.");
   }
 }
 
@@ -131,7 +131,7 @@ function respond(txt) {
     botReply("I'm a Windows-style assistant for this portfolio.");
 
   else if (txt.includes("hi") || txt.includes("hello"))
-    botReply("Hello 🙂 How can I help you?");
+    botReply("Hello, How can I help you?");
 
   else
     botReply("I didn't understand. Try typing 'help'.");
@@ -160,6 +160,16 @@ document.getElementById("skills-content").innerHTML = `
 • HTML, CSS, JS<br>
 • Git & GitHub<br>
 • Python (basic)<br>
+• Rust<br>
+• ML/DL (PyTorch)<br>
+• time-series modeling<br>
+• blockchain development fundamentals<br>
+• on-chain analytics<br>
+• quant modeling<br>
+• distributed systems basics<br>
+• data engineering<br>
+• Linux/Git<br>
+• numerical methods and statistical analysis.<br>
 • Problem Solving
 `;
 
