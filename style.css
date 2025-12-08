@@ -192,20 +192,23 @@ iframe {
   gap: 40px;
 }
 
-/* LEFT FIXED COLUMN */
 #left-icons {
+  position: fixed;
+  top: 15px;
+  left: 15px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 120px;
+  gap: 18px;
 }
 
-/* RIGHT SIDE ICON GRID */
 #right-icons {
+  position: fixed;
+  top: 15px;
+  right: 40px;
   display: grid;
-  grid-template-columns: repeat(7, 80px);
-  grid-auto-rows: auto;
-  gap: 18px 20px;
-  max-width: calc(100vw - 200px);
+  grid-template-columns: repeat(3, 90px);
+  grid-auto-rows: 90px;
+  gap: 20px;
 }
+
 
