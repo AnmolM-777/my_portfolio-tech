@@ -48,3 +48,64 @@ document.querySelectorAll(".desktop-icon").forEach(icon => {
   };
 });
 
+function openBot() {
+  document.getElementById("botWindow").style.display = "block";
+  botReply("Hi! I'm your assistant 🤖\n\nDouble-click an icon to open sections like:\n- About\n- Education\n- Projects\n- Skills\n- Contact\n\nType 'help' to see more.");
+}
+
+function closeBot() {
+  document.getElementById("botWindow").style.display = "none";
+}
+
+function sendBot() {
+  let input = document.getElementById("botInput");
+  let txt = input.value.toLowerCase();
+  if (!txt) return;
+
+  addBot("You: " + input.value);
+  input.value = "";
+
+  setTimeout(() => respond(txt), 400);
+}
+
+function addBot(msg) {
+  let chat = document.getElementById("botChat");
+  chat.innerHTML += `<div>${msg}</div>`;
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function botReply(msg) {
+  addBot("Bot: " + msg);
+}
+
+function respond(txt) {
+  if (txt.includes("help"))
+    botReply("You can open About, Education, Projects, Skills or Contact." +
+             "\nTry typing: about, skills, education");
+
+  else if (txt.includes("about"))
+    botReply("Click the About icon to see who I am.");
+
+  else if (txt.includes("education"))
+    botReply("Open Education to view my academic history.");
+
+  else if (txt.includes("projects"))
+    botReply("Click Projects to see my work and GitHub profile.");
+
+  else if (txt.includes("skills"))
+    botReply("Open Skills to see what technologies I use.");
+
+  else if (txt.includes("contact"))
+    botReply("Use Contact to reach me by email, LinkedIn or GitHub.");
+
+  else if (txt.includes("who"))
+    botReply("I'm a Windows-style assistant for this portfolio.");
+
+  else if (txt.includes("hi") || txt.includes("hello"))
+    botReply("Hello 🙂 How can I help you?");
+
+  else
+    botReply("I didn't understand. Try typing 'help'.");
+}
+
+
