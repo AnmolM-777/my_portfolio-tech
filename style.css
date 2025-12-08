@@ -1,41 +1,148 @@
 body {
-  margin:0;
-  background:#3a6ea5;
-  font-family:Tahoma;
+  margin: 0;
+  background: #3a6ea5;
+  font-family: Tahoma, sans-serif;
 }
 
+/* =======================
+   DESKTOP ICON COLUMN
+======================= */
+
 .icon-column {
-  position:fixed;
-  left:15px;top:15px;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .desktop-icon {
-  width:70px;color:white;text-align:center;cursor:pointer;
+  width: 72px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  padding: 3px;
+  user-select: none;
 }
 
-.desktop-icon img { width:40px; }
+.desktop-icon img {
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+}
 
-.desktop-icon:active { background:rgba(255,255,255,.3); }
+.desktop-icon span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  text-shadow: 1px 1px black;
+}
+
+/* Selected desktop icon */
+.desktop-icon.selected {
+  background: rgba(0, 120, 215, 0.6);
+  outline: 1px dotted white;
+}
+
+/* Hover effect */
+.desktop-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =======================
+   TASKBAR
+======================= */
 
 .taskbar {
-  position:fixed;bottom:0;width:100%;
-  background:#c0c0c0;
-  padding:4px;display:flex;align-items:center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #c0c0c0;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
 }
 
+.taskbar button {
+  border: 2px outset white;
+  background: #c0c0c0;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.taskbar button:active {
+  border: 2px inset white;
+}
+
+.traylinks a {
+  margin-left: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.traylinks a:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   WINDOWS
+======================= */
+
 .window {
-  position:fixed;background:#f0f0f0;border:3px solid black;
-  width:320px;height:240px;display:none;top:110px;left:200px;
+  position: fixed;
+  background: #f0f0f0;
+  border: 3px solid black;
+  width: 340px;
+  height: 260px;
+  display: none;
+  top: 110px;
+  left: 200px;
+  box-shadow: 4px 4px black;
 }
 
 .title-bar {
-  background:#000080;color:white;padding:4px;display:flex;
-  justify-content:space-between;cursor:move;
+  background: #000080;
+  color: white;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+  font-size: 12px;
 }
 
-#datetime { margin-left:auto;font-size:12px; }
+.title-bar span {
+  cursor: pointer;
+  padding: 0 4px;
+}
 
-iframe { width:100%;height:calc(100% - 24px);border:none; }
+.title-bar span:hover {
+  background: red;
+}
+
+/* =======================
+   CONTENT
+======================= */
+
+.content {
+  padding: 8px;
+  font-size: 12px;
+  overflow: auto;
+  height: calc(100% - 24px);
+}
+
+#datetime {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+/* =======================
+   GITHUB WINDOW
+======================= */
+
+iframe {
+  width: 100%;
+  height: calc(100% - 24px);
+  border: none;
+}
