@@ -1,47 +1,43 @@
-let drag = null;
-let resize = null;
-
-/* OPEN / CLOSE */
-function openWindow(name) {
-  const w = document.getElementById(name + "-window");
-  w.style.display = "block";
-  w.style.zIndex = Date.now();
-  document.getElementById("start").style.display = "none";
+function openWindow(id){
+  const w=document.getElementById(id+"-window");
+  w.style.display="block";
+  w.style.zIndex=Date.now();
 }
 
-function closeWindow(name) {
-  document.getElementById(name + "-window").style.display = "none";
+function closeWindow(id){
+  document.getElementById(id+"-window").style.display="none";
 }
 
-/* START MENU */
-function toggleStart() {
-  const s = document.getElementById("start");
-  s.style.display = s.style.display === "block" ? "none" : "block";
-}
+// TIME
+setInterval(()=>{
+  const n=new Date();
+  document.getElementById("datetime").innerText=n.toDateString()+" "+n.toLocaleTimeString();
+},1000)
 
-/* DRAG */
-function dragStart(e, w) {
-  drag = { w, x: e.clientX, y: e.clientY, l: w.offsetLeft, t: w.offsetTop };
-  document.onmousemove = dragMove;
-  document.onmouseup = () => drag = null;
-}
+// LOAD DATA
+fetch("data/profile.json").then(r=>r.json()).then(d=>{
+  document.getElementById("about-content").innerHTML=
+    `<h3>${d.name}</h3><p>${d.role}</p><p>${d.bio}</p><p>${d.location}</p>`;
+});
 
-function dragMove(e) {
-  if (!drag) return;
-  drag.w.style.left = drag.l + e.clientX - drag.x + "px";
-  drag.w.style.top = drag.t + e.clientY - drag.y + "px";
-}
+fetch("data/education.json").then(r => r.json()).then(list => {
+  document.getElementById("edu-content").innerHTML = list.map(e => `
+    <h4>${e.institution}</h4>
+    <p><b>${e.degree}</b></p>
+    <p>${e.duration}</p>
+    <ul>
+      ${e.details.map(d => `<li>${d}</li>`).join("")}
+    </ul>
+    <hr>
+  `).join("");
+});
 
-/* RESIZE */
-function resizeStart(e, w) {
-  resize = { w, x: e.clientX, y: e.clientY, h: w.offsetHeight, wd: w.offsetWidth };
-  document.onmousemove = resizeMove;
-  document.onmouseup = () => resize = null;
-}
+fetch("data/skills.json").then(r=>r.json()).then(s=>{
+  document.getElementById("skills-content").innerHTML=s.join("<br>");
+});
 
-function resizeMove(e) {
-  if (!resize) return;
-  resize.w.style.width = resize.wd + (e.clientX - resize.x) + "px";
-  resize.w.style.height = resize.h + (e.clientY - resize.y) + "px";
-}
-
+fetch("data/socials.json").then(r=>r.json()).then(s=>{
+  document.getElementById("contact-content").innerHTML=
+    `<p>Email: ${s.email}</p>`;
+  document.getElementById("github-frame").src=s.github;
+});
