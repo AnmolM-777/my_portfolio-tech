@@ -9,56 +9,107 @@
 <div class="icon-column">
 
   <div class="desktop-icon">
-  <img src="assets/icons/recycle.png">
-  <span>Recycle Bin</span>
-</div>
+    <img src="assets/icons/recycle.png">
+    <span>Recycle Bin</span>
+  </div>
 
   <div class="desktop-icon" ondblclick="openWindow('about')">
-    <img src="assets/icons/about.png"><span>About</span>
+    <img src="assets/icons/about.png">
+    <span>About</span>
   </div>
 
   <div class="desktop-icon" ondblclick="openWindow('education')">
-    <img src="assets/icons/edu.png"><span>Education</span>
+    <img src="assets/icons/edu.png">
+    <span>Education</span>
   </div>
 
   <div class="desktop-icon" ondblclick="openWindow('projects')">
-    <img src="assets/icons/folder.png"><span>Projects</span>
+    <img src="assets/icons/folder.png">
+    <span>Projects</span>
   </div>
 
   <div class="desktop-icon" ondblclick="openWindow('skills')">
-    <img src="assets/icons/skills.png"><span>Skills</span>
+    <img src="assets/icons/skills.png">
+    <span>Skills</span>
   </div>
 
   <div class="desktop-icon" ondblclick="openWindow('contact')">
-    <img src="assets/icons/mail.png"><span>Contact</span>
+    <img src="assets/icons/mail.png">
+    <span>Contact</span>
+  </div>
+
+  <!-- ✅ ASSISTANT ICON -->
+  <div class="desktop-icon" ondblclick="openBot()">
+    <img src="assets/icons/bot.png">
+    <span>Assistant</span>
   </div>
 
 </div>
 
-
 <div class="taskbar">
+  <button onclick="toggleStart()">🪟 Start</button>
 
-<button onclick="toggleStart()">🪟 Start</button>
+  <div class="traylinks">
+    <span id="tray-github"></span>
+    <span id="tray-linkedin"></span>
+    <span id="tray-email"></span>
+    <span id="tray-resources"></span>
+  </div>
 
-<div class="traylinks">
-  <span id="tray-github"></span>
-  <span id="tray-linkedin"></span>
-  <span id="tray-email"></span>
-  <span id="tray-resources"></span>
+  <div id="datetime"></div>
+  <button onclick="openBot()">🤖</button>
 </div>
-
-<div id="datetime"></div>
-<button onclick="openWindow('bot')">🤖</button>
-</div>
-
 
 <!-- WINDOWS -->
-<div class="window" id="about-window"><div class="title-bar" onmousedown="dragStart(event,this.parentElement)">About<span onclick="closeWindow('about')">✖</span></div><div class="content" id="about-content"></div></div>
-<div class="window" id="education-window"><div class="title-bar" onmousedown="dragStart(event,this.parentElement)">Education<span onclick="closeWindow('education')">✖</span></div><div class="content" id="edu-content"></div></div>
-<div class="window" id="projects-window"><div class="title-bar" onmousedown="dragStart(event,this.parentElement)">Projects<span onclick="closeWindow('projects')">✖</span></div><iframe id="github-frame"></iframe></div>
-<div class="window" id="skills-window"><div class="title-bar" onmousedown="dragStart(event,this.parentElement)">Skills<span onclick="closeWindow('skills')">✖</span></div><div class="content" id="skills-content"></div></div>
-<div class="window" id="contact-window"><div class="title-bar" onmousedown="dragStart(event,this.parentElement)">Contact<span onclick="closeWindow('contact')">✖</span></div><div class="content" id="contact-content"></div></div>
-<div class="window" id="bot-window"><div class="title-bar">Assistant<span onclick="closeWindow('bot')">✖</span></div><div class="content">Open icons to explore my OS.</div></div>
+<div class="window" id="about-window">
+  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+    About <span onclick="closeWindow('about')">✖</span>
+  </div>
+  <div class="content" id="about-content"></div>
+</div>
+
+<div class="window" id="education-window">
+  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+    Education <span onclick="closeWindow('education')">✖</span>
+  </div>
+  <div class="content" id="edu-content"></div>
+</div>
+
+<div class="window" id="projects-window">
+  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+    Projects <span onclick="closeWindow('projects')">✖</span>
+  </div>
+  <iframe id="github-frame"></iframe>
+</div>
+
+<div class="window" id="skills-window">
+  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+    Skills <span onclick="closeWindow('skills')">✖</span>
+  </div>
+  <div class="content" id="skills-content"></div>
+</div>
+
+<div class="window" id="contact-window">
+  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+    Contact <span onclick="closeWindow('contact')">✖</span>
+  </div>
+  <div class="content" id="contact-content"></div>
+</div>
+
+<!-- ✅ CHATBOT WINDOW -->
+<div class="window" id="bot-window" style="width:350px;height:300px;">
+  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+    Assistant <span onclick="closeWindow('bot')">✖</span>
+  </div>
+
+  <div class="content" id="botChat" style="height:200px;overflow:auto;"></div>
+
+  <div style="display:flex;border-top:1px solid #999;">
+    <input id="botInput" placeholder="Type a message..."
+           style="flex:1;border:none;padding:5px;font-family:Tahoma;">
+    <button onclick="sendBot()">Send</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
