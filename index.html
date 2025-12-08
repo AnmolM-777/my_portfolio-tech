@@ -4,61 +4,54 @@
   <title>Anmol's Portfolio</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Quick override styles to create 3 columns x 7 rows on the right -->
+  <!-- Popup Positioning + Right Icons Grid -->
   <style>
-    /* ensure desktop area is the positioning context */
     #desktop {
       position: relative;
-      min-height: calc(100vh - 46px); /* leave room for taskbar */
+      min-height: calc(100vh - 46px);
     }
 
-    /* make individual icons vertically stacked with label */
     .desktop-icon {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 84px;             /* adjust to taste */
+      width: 84px;
       text-align: center;
       font-size: 12px;
       cursor: default;
       user-select: none;
     }
+
     .desktop-icon img {
-      width: 48px;             /* icon size */
+      width: 48px;
       height: 48px;
-      display: block;
       margin-bottom: 6px;
     }
 
-    /* RIGHT SIDE: grid that fills downwards then across (column major),
-       creating 3 columns each with up to 7 rows */
     #right-icons {
       position: absolute;
-      right: 24px;            /* distance from right edge; tweak as needed */
-      top: 72px;              /* vertical offset from top; tweak as needed */
+      right: 24px;
+      top: 72px;
       display: grid;
-      grid-template-rows: repeat(7, auto); /* 7 rows */
-      grid-auto-flow: column;              /* fill down each column, then next column */
-      grid-auto-columns: max-content;      /* columns size to content */
-      gap: 18px 28px;         /* row-gap column-gap */
-      align-items: start;
+      grid-template-rows: repeat(7, auto);
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      gap: 18px 28px;
       justify-items: center;
-      -webkit-user-select: none;
-      -moz-user-select: none;
     }
 
-    /* responsive fallback: on very narrow screens switch back to rows */
-    @media (max-width: 720px) {
-      #right-icons {
-        position: static;
-        margin: 14px auto;
-        grid-template-columns: repeat(3, auto);
-        grid-template-rows: none;
-        grid-auto-flow: row;
-      }
+    /* Center the welcome popup */
+    #welcome-window {
+      position: absolute;
+      left: 50%;
+      top: 30%;
+      transform: translate(-50%, -50%);
+      display: none;
+      width: 340px;
     }
   </style>
 </head>
+
 <body oncontextmenu="return false">
 
 <div id="desktop">
@@ -67,37 +60,37 @@
   <div id="left-icons">
 
     <div class="desktop-icon">
-      <img src="assets/icons/recycle.png" alt="Recycle">
+      <img src="assets/icons/recycle.png">
       <span>Recycle Bin</span>
     </div>
 
     <div class="desktop-icon" ondblclick="openWindow('about')">
-      <img src="assets/icons/about.png" alt="About">
+      <img src="assets/icons/about.png">
       <span>About</span>
     </div>
 
     <div class="desktop-icon" ondblclick="openWindow('education')">
-      <img src="assets/icons/edu.png" alt="Education">
+      <img src="assets/icons/edu.png">
       <span>Education</span>
     </div>
 
     <div class="desktop-icon" ondblclick="openWindow('projects')">
-      <img src="assets/icons/folder.png" alt="Projects">
+      <img src="assets/icons/folder.png">
       <span>Projects</span>
     </div>
 
     <div class="desktop-icon" ondblclick="openWindow('skills')">
-      <img src="assets/icons/skills.png" alt="Skills">
+      <img src="assets/icons/skills.png">
       <span>Skills</span>
     </div>
 
     <div class="desktop-icon" ondblclick="openWindow('contact')">
-      <img src="assets/icons/mail.png" alt="Contact">
+      <img src="assets/icons/mail.png">
       <span>Contact</span>
     </div>
 
     <div class="desktop-icon" ondblclick="openBot()">
-      <img src="assets/icons/bot.png" alt="Assistant">
+      <img src="assets/icons/bot.png">
       <span>Assistant</span>
     </div>
 
@@ -107,33 +100,47 @@
   <!-- RIGHT SIDE ICON GRID (3 COLUMNS x 7 ROWS) -->
   <div id="right-icons">
 
-    <div class="desktop-icon"><img src="assets/icons/briefcase-4.png" alt=""><span>Briefcase</span></div>
-    <div class="desktop-icon"><img src="assets/icons/cd_drive-0.png" alt=""><span>CD-ROM</span></div>
-    <div class="desktop-icon"><img src="assets/icons/display_properties-5.png" alt=""><span>Display</span></div>
+    <div class="desktop-icon"><img src="assets/icons/briefcase-4.png"><span>Briefcase</span></div>
+    <div class="desktop-icon"><img src="assets/icons/cd_drive-0.png"><span>CD-ROM</span></div>
+    <div class="desktop-icon"><img src="assets/icons/display_properties-5.png"><span>Display</span></div>
 
-    <div class="desktop-icon"><img src="assets/icons/battery-alt-0.png" alt=""><span>Battery</span></div>
-    <div class="desktop-icon"><img src="assets/icons/channels-3.png" alt=""><span>Channels</span></div>
-    <div class="desktop-icon"><img src="assets/icons/entire_network_globe-3.png" alt=""><span>Entire Network</span></div>
+    <div class="desktop-icon"><img src="assets/icons/battery-alt-0.png"><span>Battery</span></div>
+    <div class="desktop-icon"><img src="assets/icons/channels-3.png"><span>Channels</span></div>
+    <div class="desktop-icon"><img src="assets/icons/entire_network_globe-3.png"><span>Entire Network</span></div>
 
-    <div class="desktop-icon"><img src="assets/icons/appwizard-4.png" alt=""><span>App Wizard</span></div>
-    <div class="desktop-icon"><img src="assets/icons/clean_drive-5.png" alt=""><span>Local Disk</span></div>
-    <div class="desktop-icon"><img src="assets/icons/floppy_drive_5_25-3.png" alt=""><span>Floppy</span></div>
+    <div class="desktop-icon"><img src="assets/icons/appwizard-4.png"><span>App Wizard</span></div>
+    <div class="desktop-icon"><img src="assets/icons/clean_drive-5.png"><span>Local Disk</span></div>
+    <div class="desktop-icon"><img src="assets/icons/floppy_drive_5_25-3.png"><span>Floppy</span></div>
 
-    <div class="desktop-icon"><img src="assets/icons/accessibility_contrast.png" alt=""><span>High Contrast</span></div>
-    <div class="desktop-icon"><img src="assets/icons/computer-5.png" alt=""><span>Computer</span></div>
-    <div class="desktop-icon"><img src="assets/icons/globe_map-0.png" alt=""><span>World Map</span></div>
+    <div class="desktop-icon"><img src="assets/icons/accessibility_contrast.png"><span>High Contrast</span></div>
+    <div class="desktop-icon"><img src="assets/icons/computer-5.png"><span>Computer</span></div>
+    <div class="desktop-icon"><img src="assets/icons/globe_map-0.png"><span>World Map</span></div>
 
-    <div class="desktop-icon"><img src="assets/icons/accessibility-4.png" alt=""><span>Accessibility</span></div>
-    <div class="desktop-icon"><img src="assets/icons/desktop-2.png" alt=""><span>Desktop</span></div>
-    <div class="desktop-icon"><img src="assets/icons/internet_connection_wiz-2.png" alt=""><span>Internet Setup</span></div>
+    <div class="desktop-icon"><img src="assets/icons/accessibility-4.png"><span>Accessibility</span></div>
+    <div class="desktop-icon"><img src="assets/icons/desktop-2.png"><span>Desktop</span></div>
+    <div class="desktop-icon"><img src="assets/icons/internet_connection_wiz-2.png"><span>Internet Setup</span></div>
 
-    <div class="desktop-icon"><img src="assets/icons/camera3_network-4.png" alt=""><span>Network Cam</span></div>
-    <div class="desktop-icon"><img src="assets/icons/directory_business_calendar-4.png" alt=""><span>Calendar</span></div>
-    <div class="desktop-icon"><img src="assets/icons/joystick-4.png" alt=""><span>Games</span></div>
+    <div class="desktop-icon"><img src="assets/icons/camera3_network-4.png"><span>Network Cam</span></div>
+    <div class="desktop-icon"><img src="assets/icons/directory_business_calendar-4.png"><span>Calendar</span></div>
+    <div class="desktop-icon"><img src="assets/icons/joystick-4.png"><span>Games</span></div>
 
-    <div class="desktop-icon"><img src="assets/icons/camera3_vid-4.png" alt=""><span>Video Cam</span></div>
-    <div class="desktop-icon"><img src="assets/icons/directx.png" alt=""><span>DirectX</span></div>
+    <div class="desktop-icon"><img src="assets/icons/camera3_vid-4.png"><span>Video Cam</span></div>
+    <div class="desktop-icon"><img src="assets/icons/directx.png"><span>DirectX</span></div>
 
+  </div>
+
+
+  <!-- ⭐ NEW: WELCOME POPUP WINDOW ⭐ -->
+  <div class="window" id="welcome-window">
+    <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
+      Welcome <span onclick="closeWindow('welcome')">✖</span>
+    </div>
+
+    <div class="content" style="padding:14px; font-size:14px; line-height:1.4;">
+      <b>Hello!</b><br><br>
+      Welcome to my portfolio Windows.<br><br>
+      <b>Press any of the buttons on the left to get started.</b>
+    </div>
   </div>
 
 </div>
@@ -217,5 +224,13 @@
 
 
 <script src="script.js"></script>
+
+<!-- Auto-open welcome window -->
+<script>
+  window.onload = function () {
+    openWindow("welcome");
+  };
+</script>
+
 </body>
 </html>
