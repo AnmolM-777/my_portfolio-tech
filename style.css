@@ -147,3 +147,10 @@ iframe {
   height: calc(100% - 24px);
   border: none;
 }
+.window {
+  resize: both;
+  overflow: auto;
+  min-width: 220px;
+  min-height: 160px;
+}
+
