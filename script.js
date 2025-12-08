@@ -155,7 +155,9 @@ function dragEnd() {
   dragObj = null;
   document.onmousemove = null;
 }
-
+function openWindow(name) {
+  document.getElementById(name + "-window").style.display = "block";
+}
 
 
 
