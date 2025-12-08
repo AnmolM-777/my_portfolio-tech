@@ -96,35 +96,30 @@
 </div>
 
 <!-- ✅ CHATBOT WINDOW -->
-<div class="window" id="bot-window" style="width:350px;height:300px;">
+<div class="window" id="bot-window" style="width:370px;height:300px;">
   <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
     Assistant <span onclick="closeWindow('bot')">✖</span>
   </div>
 
-  <div class="content" id="botChat" style="height:200px;overflow:auto;"></div>
+  <div class="content" id="botChat">
+    <b>Welcome to Anmol OS 🤖</b><br><br>
+    You can type:<br><br>
+    • <b>about</b> — who I am<br>
+    • <b>education</b> — my academics<br>
+    • <b>projects</b> — what I’ve built<br>
+    • <b>skills</b> — my tools<br>
+    • <b>contact</b> — connect with me<br>
+    • <b>help</b> — list all commands<br><br>
+    Type below to begin…
+  </div>
 
   <div style="display:flex;border-top:1px solid #999;">
-    <input id="botInput" placeholder="Type a message..."
-           style="flex:1;border:none;padding:5px;font-family:Tahoma;">
+    <input id="botInput" placeholder="Type here..."
+           style="flex:1;border:none;padding:6px;font-family:Tahoma;">
     <button onclick="sendBot()">Send</button>
   </div>
 </div>
-
-  <div class="window" id="botWindow">
-  <div class="title-bar">
-    Assistant
-    <span onclick="closeBot()">X</span>
-  </div>
-
-  <div class="content" id="botChat"></div>
-
-  <div style="display:flex;border-top:1px solid #999">
-    <input id="botInput" placeholder="Type a message..."
-           style="flex:1;border:none;padding:5px;font-family:Tahoma;">
-    <button onclick="sendBot()">Send</button>
-  </div>
-</div>
-
+  
 <script src="script.js"></script>
 </body>
 </html>
