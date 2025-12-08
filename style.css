@@ -155,4 +155,35 @@ iframe {
   min-width: 220px;
   min-height: 160px;
 }
+.start-btn {
+  background:#c0c0c0;
+  border:2px outset white;
+  padding:4px 10px;
+  margin-right:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.task-links {
+  display:flex;
+  gap:8px;
+}
+
+.task-links a {
+  background:#e0e0e0;
+  color:black;
+  padding:4px 8px;
+  border:2px outset white;
+  font-size:12px;
+  text-decoration:none;
+}
+
+.task-links a:active {
+  border:2px inset gray;
+}
+
+#datetime {
+  margin-left:auto;
+  padding-right:10px;
+}
 
