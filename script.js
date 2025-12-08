@@ -135,5 +135,27 @@ LinkedIn: linkedin.com/in/yourname<br>
 GitHub: github.com/AnmolM-777
 `;
 
+let dragObj = null, offsetX = 0, offsetY = 0;
+
+function dragStart(e, win) {
+  dragObj = win;
+  offsetX = e.clientX - win.offsetLeft;
+  offsetY = e.clientY - win.offsetTop;
+  document.onmousemove = dragMove;
+  document.onmouseup = dragEnd;
+}
+
+function dragMove(e) {
+  if (!dragObj) return;
+  dragObj.style.left = (e.clientX - offsetX) + "px";
+  dragObj.style.top = (e.clientY - offsetY) + "px";
+}
+
+function dragEnd() {
+  dragObj = null;
+  document.onmousemove = null;
+}
+
+
 
 
