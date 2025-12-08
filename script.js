@@ -41,3 +41,10 @@ fetch("data/socials.json").then(r=>r.json()).then(s=>{
     `<p>Email: ${s.email}</p>`;
   document.getElementById("github-frame").src=s.github;
 });
+document.querySelectorAll(".desktop-icon").forEach(icon => {
+  icon.onclick = () => {
+    document.querySelectorAll(".desktop-icon").forEach(i => i.classList.remove("selected"));
+    icon.classList.add("selected");
+  };
+});
+
