@@ -1,236 +1,475 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Anmol's Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anmol@iitj — Portfolio</title>
+  <meta name="description" content="Anmol Mishra — CS undergraduate at IIT Jodhpur. Backend systems, quantitative finance, blockchain, and open-source enthusiast.">
+  <meta name="keywords" content="Anmol Mishra, IIT Jodhpur, portfolio, developer, computer science, blockchain, quant">
+  <meta property="og:title" content="Anmol Mishra — Portfolio">
+  <meta property="og:description" content="CS @ IIT Jodhpur • Backend & Systems • Quant & Open-Source">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Popup Positioning + Right Icons Grid -->
-  <style>
-    #desktop {
-      position: relative;
-      min-height: calc(100vh - 46px);
-    }
-
-    .desktop-icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 84px;
-      text-align: center;
-      font-size: 12px;
-      cursor: default;
-      user-select: none;
-    }
-
-    .desktop-icon img {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 6px;
-    }
-
-    #right-icons {
-      position: absolute;
-      right: 24px;
-      top: 72px;
-      display: grid;
-      grid-template-rows: repeat(7, auto);
-      grid-auto-flow: column;
-      grid-auto-columns: max-content;
-      gap: 18px 28px;
-      justify-items: center;
-    }
-
-    /* Center the welcome popup */
-    #welcome-window {
-      position: absolute;
-      left: 50%;
-      top: 30%;
-      transform: translate(-50%, -50%);
-      display: none;
-      width: 340px;
-    }
-  </style>
 </head>
+<body>
 
-<body oncontextmenu="return false">
+  <!-- SCANLINE OVERLAY -->
+  <div class="scanlines" aria-hidden="true"></div>
 
-<div id="desktop">
+  <!-- BOOT SEQUENCE OVERLAY -->
+  <div id="boot-overlay">
+    <div id="boot-text"></div>
+  </div>
 
-  <!-- LEFT COLUMN (SYSTEM ICONS) -->
-  <div id="left-icons">
-
-    <div class="desktop-icon">
-      <img src="assets/icons/recycle.png">
-      <span>Recycle Bin</span>
+  <!-- NAVIGATION — Terminal Tabs -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="prompt-symbol">❯</span> anmol<span class="accent">@</span>iitj
+      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">~/home</a></li>
+        <li><a href="#about" class="nav-link">~/about</a></li>
+        <li><a href="#education" class="nav-link">~/education</a></li>
+        <li><a href="#projects" class="nav-link">~/projects</a></li>
+        <li><a href="#skills" class="nav-link">~/skills</a></li>
+        <li><a href="#contact" class="nav-link">~/contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <div class="desktop-icon" ondblclick="openWindow('about')">
-      <img src="assets/icons/about.png">
-      <span>About</span>
+  <!-- ===================== HERO ===================== -->
+  <section id="home" class="section hero-section">
+    <div class="terminal-window hero-terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">anmol@iitj: ~/portfolio</span>
+      </div>
+      <div class="terminal-body">
+        <div class="ascii-art" aria-hidden="true">
+ █████╗ ███╗   ██╗███╗   ███╗ ██████╗ ██╗
+██╔══██╗████╗  ██║████╗ ████║██╔═══██╗██║
+███████║██╔██╗ ██║██╔████╔██║██║   ██║██║
+██╔══██║██║╚██╗██║██║╚██╔╝██║██║   ██║██║
+██║  ██║██║ ╚████║██║ ╚═╝ ██║╚██████╔╝███████╗
+╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ ╚══════╝</div>
+        <p class="hero-subtitle">
+          <span class="prompt">anmol@iitj:~$</span> <span id="typed-text"></span><span class="cursor">█</span>
+        </p>
+        <div class="hero-meta">
+          <span class="tag">🎓 CS @ IIT Jodhpur</span>
+          <span class="tag">⚙️ Backend & Systems</span>
+          <span class="tag">📊 Quant & Finance</span>
+          <span class="tag">₿ Blockchain</span>
+          <span class="tag">🤖 AI / ML</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">ls ~/projects</a>
+          <a href="assets/resume.pdf" target="_blank" class="btn btn-secondary">cat resume.pdf</a>
+          <a href="https://github.com/AnmolM-777" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="desktop-icon" ondblclick="openWindow('education')">
-      <img src="assets/icons/edu.png">
-      <span>Education</span>
+  <!-- ===================== ABOUT — Neofetch ===================== -->
+  <section id="about" class="section">
+    <h2 class="section-title"><span class="prompt-symbol">❯</span> cat ~/about.md</h2>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">neofetch</span>
+      </div>
+      <div class="terminal-body neofetch-grid">
+        <div class="neofetch-logo" aria-hidden="true">
+            .-/+oossssoo+/-.
+        `:+ssssssssssssssssss+:`
+      -+ssssssssssssssssssyyssss+-
+    .ossssssssssssssssss<span class="accent">dMMMNy</span>sssso.
+   /sssssssssss<span class="accent">hdmmNNmmyNMMMMh</span>ssssss/
+  +sssssssss<span class="accent">hm</span>yd<span class="accent">MMMMMMMNddddy</span>ssssssss+
+ /ssssssss<span class="accent">hNMMM</span>yh<span class="accent">hyyyyhmNMMMNh</span>ssssssss/
+.ssssssss<span class="accent">dMMMNh</span>ssssssssss<span class="accent">hNMMMd</span>ssssssss.
++ssss<span class="accent">hhhyNMMNy</span>ssssssssssss<span class="accent">yNMMMy</span>sssssss+
+oss<span class="accent">yNMMMNyMMh</span>ssssssssssssss<span class="accent">hmmmh</span>ssssssso
+oss<span class="accent">yNMMMNyMMh</span>sssssssssssssssmh<span class="accent">y</span>ssssssso
++ssss<span class="accent">hhhyNMMNy</span>ssssssssssss<span class="accent">yNMMMy</span>sssssss+
+.ssssssss<span class="accent">dMMMNh</span>ssssssssss<span class="accent">hNMMMd</span>ssssssss.
+ /ssssssss<span class="accent">hNMMM</span>yh<span class="accent">hyyyyhdNMMMNh</span>ssssssss/
+  +sssssssss<span class="accent">dm</span>yd<span class="accent">MMMMMMMMddddy</span>ssssssss+
+   /sssssssssss<span class="accent">hdmNNNNmyNMMMMh</span>ssssss/
+    .ossssssssssssssssss<span class="accent">dMMMNy</span>sssso.
+      -+sssssssssssssssss<span class="accent">yyy</span>ssss+-
+        `:+ssssssssssssssssss+:`
+            .-/+oossssoo+/-.</div>
+        <div class="neofetch-info">
+          <p><span class="accent">anmol</span>@<span class="accent">iitj</span></p>
+          <p>-----------------</p>
+          <p><span class="accent">OS:</span> IIT Jodhpur x86_64</p>
+          <p><span class="accent">Host:</span> B.Tech CSE (2024 — 2028)</p>
+          <p><span class="accent">Kernel:</span> Computer Science & Engineering</p>
+          <p><span class="accent">Uptime:</span> 2+ years of building</p>
+          <p><span class="accent">Shell:</span> bash / zsh</p>
+          <p><span class="accent">DE:</span> Full-Stack + Systems</p>
+          <p><span class="accent">Terminal:</span> VS Code / Vim</p>
+          <p><span class="accent">CPU:</span> Backend & Web Systems</p>
+          <p><span class="accent">GPU:</span> Quant Finance & AI/ML</p>
+          <p><span class="accent">Memory:</span> Blockchain / Open-Source</p>
+          <p class="neofetch-break"></p>
+          <p class="about-desc">
+            I'm a Computer Science undergraduate at IIT Jodhpur 
+            interested in how software, finance, and systems
+            engineering intersect. I like building things that are
+            <span class="accent">simple</span>, <span class="accent">reliable</span>, and <span class="accent">actually useful</span>.
+          </p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="desktop-icon" ondblclick="openWindow('projects')">
-      <img src="assets/icons/folder.png">
-      <span>Projects</span>
+  <!-- ===================== EDUCATION — Git Log ===================== -->
+  <section id="education" class="section">
+    <h2 class="section-title"><span class="prompt-symbol">❯</span> git log --education</h2>
+    <div class="git-log">
+
+      <div class="commit">
+        <div class="commit-hash">
+          <span class="accent">commit</span> <span class="hash">a3f8b2c</span>
+          <span class="branch">(HEAD -> main, origin/main)</span>
+        </div>
+        <p class="commit-meta">Author: Anmol Mishra &lt;anmolindia2006@gmail.com&gt;</p>
+        <p class="commit-meta">Date: 2024 — Present</p>
+        <div class="commit-msg">
+          <p class="commit-title">🎓 B.Tech Computer Science & Engineering</p>
+          <p class="commit-body">Indian Institute of Technology, Jodhpur</p>
+          <p class="commit-body dim">Currently in 2nd year • Focus: Systems, Quant, Blockchain</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit-hash">
+          <span class="accent">commit</span> <span class="hash">7d1e5f9</span>
+        </div>
+        <p class="commit-meta">Author: Anmol Mishra</p>
+        <p class="commit-meta">Date: 2022 — 2024</p>
+        <div class="commit-msg">
+          <p class="commit-title">📚 Higher Secondary (Class XII) — 92.7%</p>
+          <p class="commit-body">PACE Junior Science College, Mumbai</p>
+          <p class="commit-body dim">Physics, Chemistry, Mathematics</p>
+        </div>
+      </div>
+
+      <div class="commit">
+        <div class="commit-hash">
+          <span class="accent">commit</span> <span class="hash">1b4a9c3</span>
+        </div>
+        <p class="commit-meta">Author: Anmol Mishra</p>
+        <p class="commit-meta">Date: 2022</p>
+        <div class="commit-msg">
+          <p class="commit-title">🏫 Secondary (Class X) — 97.6%</p>
+          <p class="commit-body">Atomic Energy Central School No. 2</p>
+          <p class="commit-body dim">CBSE Board</p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="desktop-icon" ondblclick="openWindow('skills')">
-      <img src="assets/icons/skills.png">
-      <span>Skills</span>
+  <!-- ===================== PROJECTS — File Browser ===================== -->
+  <section id="projects" class="section">
+    <h2 class="section-title"><span class="prompt-symbol">❯</span> ls -la ~/projects/</h2>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">file-manager — ~/projects</span>
+      </div>
+      <div class="terminal-body">
+        <div class="file-listing-header">
+          <span>permissions</span>
+          <span>type</span>
+          <span>name</span>
+          <span>description</span>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- SSO IITJ -->
+          <div class="project-card" data-lang="JavaScript / Python">
+            <div class="project-top">
+              <div class="project-icon">🔐</div>
+              <div class="project-info">
+                <h3 class="project-name">SSO IITJ — Single Sign-On Platform</h3>
+                <p class="project-desc">Enterprise-grade SSO system integrating IIT Jodhpur services. Unified login across multiple systems with token-based security, reducing duplicate authentication workflows.</p>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="lang-badge js">JavaScript</span>
+                <span class="lang-badge py">Python</span>
+                <span class="lang-badge misc">Auth/JWT</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AnmolM-777/sso_frontend" target="_blank" class="project-link">frontend ↗</a>
+                <a href="https://github.com/AnmolM-777/sso_backend" target="_blank" class="project-link">backend ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spac3D -->
+          <div class="project-card" data-lang="CSS / React">
+            <div class="project-top">
+              <div class="project-icon">🌌</div>
+              <div class="project-info">
+                <h3 class="project-name">Spac3D — 3D Room Reorganizer</h3>
+                <p class="project-desc">Take a photo of your room and reorganize it in 3D space. Uses computer vision for depth estimation, NLP for furniture generation, and Three.js for interactive 3D rendering.</p>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="lang-badge css">CSS</span>
+                <span class="lang-badge js">React</span>
+                <span class="lang-badge misc">Three.js</span>
+                <span class="lang-badge py">MiDaS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AnmolM-777/Spac3D" target="_blank" class="project-link">source ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Senate Portal -->
+          <div class="project-card" data-lang="TypeScript">
+            <div class="project-top">
+              <div class="project-icon">🏛</div>
+              <div class="project-info">
+                <h3 class="project-name">IITJ Senate Portal</h3>
+                <p class="project-desc">Full-featured portal supporting institutional & academic workflows, built for real users with real constraints. Collaborative PR-driven development with UI + backend interaction.</p>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="lang-badge ts">TypeScript</span>
+                <span class="lang-badge misc">React</span>
+                <span class="lang-badge misc">REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AnmolM-777/iitjsenateportal" target="_blank" class="project-link">source ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Crypto Wallet Analyzer -->
+          <div class="project-card" data-lang="Python">
+            <div class="project-top">
+              <div class="project-icon">🪙</div>
+              <div class="project-info">
+                <h3 class="project-name">Crypto Wallet Analyzer</h3>
+                <p class="project-desc">Python-based on-chain analytics tool for cryptocurrency wallets. Analyzes transaction patterns, portfolio composition, and risk metrics using blockchain data.</p>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="lang-badge py">Python</span>
+                <span class="lang-badge misc">Blockchain</span>
+                <span class="lang-badge misc">Analytics</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AnmolM-777/crypto-wallet-analyzer" target="_blank" class="project-link">source ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quant Risk Engine -->
+          <div class="project-card" data-lang="Python">
+            <div class="project-top">
+              <div class="project-icon">📉</div>
+              <div class="project-info">
+                <h3 class="project-name">Quant Risk Engine</h3>
+                <p class="project-desc">Computational engine for exploring quantitative risk concepts. Implements risk/return models, Monte Carlo simulations, and statistical analysis for financial decision-making.</p>
+              </div>
+            </div>
+            <div class="project-meta">
+              <div class="project-tags">
+                <span class="lang-badge py">Python</span>
+                <span class="lang-badge misc">Finance</span>
+                <span class="lang-badge misc">Statistics</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/AnmolM-777/Quant-Enthusiasts-Risk-Engine" target="_blank" class="project-link">source ↗</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="desktop-icon" ondblclick="openWindow('contact')">
-      <img src="assets/icons/mail.png">
-      <span>Contact</span>
+  <!-- ===================== SKILLS — htop/tree style ===================== -->
+  <section id="skills" class="section">
+    <h2 class="section-title"><span class="prompt-symbol">❯</span> tree ~/skills/</h2>
+    <div class="skills-grid">
+
+      <div class="terminal-window skill-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">languages/</span>
+        </div>
+        <div class="terminal-body">
+          <div class="tree-view">
+            <p>├── <span class="accent">C / C++</span> <span class="skill-bar"><span class="fill" style="width:90%"></span></span></p>
+            <p>├── <span class="accent">JavaScript</span> <span class="skill-bar"><span class="fill" style="width:85%"></span></span></p>
+            <p>├── <span class="accent">TypeScript</span> <span class="skill-bar"><span class="fill" style="width:75%"></span></span></p>
+            <p>├── <span class="accent">Python</span> <span class="skill-bar"><span class="fill" style="width:80%"></span></span></p>
+            <p>└── <span class="accent">Rust</span> <span class="skill-bar"><span class="fill" style="width:35%"></span></span> <span class="dim">(learning)</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal-window skill-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">frameworks/</span>
+        </div>
+        <div class="terminal-body">
+          <div class="tree-view">
+            <p>├── <span class="accent">React</span></p>
+            <p>├── <span class="accent">Vite</span></p>
+            <p>├── <span class="accent">Tailwind CSS</span></p>
+            <p>├── <span class="accent">Three.js</span></p>
+            <p>└── <span class="accent">PyTorch</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal-window skill-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">devops/</span>
+        </div>
+        <div class="terminal-body">
+          <div class="tree-view">
+            <p>├── <span class="accent">Git / GitHub</span></p>
+            <p>├── <span class="accent">Linux</span></p>
+            <p>├── <span class="accent">Docker</span></p>
+            <p>├── <span class="accent">CI/CD</span></p>
+            <p>└── <span class="accent">Bash scripting</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal-window skill-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">domains/</span>
+        </div>
+        <div class="terminal-body">
+          <div class="tree-view">
+            <p>├── <span class="accent">Quant Modeling</span></p>
+            <p>├── <span class="accent">Time-Series Analysis</span></p>
+            <p>├── <span class="accent">Blockchain / UTXO</span></p>
+            <p>├── <span class="accent">On-chain Analytics</span></p>
+            <p>├── <span class="accent">ML / Deep Learning</span></p>
+            <p>└── <span class="accent">Distributed Systems</span></p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="desktop-icon" ondblclick="openBot()">
-      <img src="assets/icons/bot.png">
-      <span>Assistant</span>
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="section">
+    <h2 class="section-title"><span class="prompt-symbol">❯</span> cat ~/contact.md</h2>
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">contact — reach out</span>
+      </div>
+      <div class="terminal-body contact-body">
+        <div class="contact-prompt">
+          <p><span class="prompt">anmol@iitj:~$</span> echo "Let's connect"</p>
+          <p class="contact-hero-text">Let's build something together.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:anmolindia2006@gmail.com" class="contact-item" id="contact-email">
+            <span class="contact-icon">📧</span>
+            <div>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">anmolindia2006@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://github.com/AnmolM-777" target="_blank" class="contact-item" id="contact-github">
+            <span class="contact-icon">🐙</span>
+            <div>
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">AnmolM-777</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/anmol-mishra-144bab328/" target="_blank" class="contact-item" id="contact-linkedin">
+            <span class="contact-icon">💼</span>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">anmol-mishra</span>
+            </div>
+          </a>
+          <a href="assets/resume.pdf" target="_blank" class="contact-item" id="contact-resume">
+            <span class="contact-icon">📄</span>
+            <div>
+              <span class="contact-label">Resume</span>
+              <span class="contact-value">Download PDF</span>
+            </div>
+          </a>
+        </div>
+        <div class="contact-footer">
+          <p><span class="dim">$ </span><span class="accent">build openly</span> • <span class="accent">learn continuously</span> • <span class="accent">stay curious</span></p>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Anmol Mishra • Built with <span class="accent">&lt;/&gt;</span> and ☕ • <a href="https://github.com/AnmolM-777/my_portfolio-tech" target="_blank">source code ↗</a></p>
+  </footer>
 
-
-  <!-- RIGHT SIDE ICON GRID (3 COLUMNS x 7 ROWS) -->
-  <div id="right-icons">
-
-    <div class="desktop-icon"><img src="assets/icons/briefcase-4.png"><span>Briefcase</span></div>
-    <div class="desktop-icon"><img src="assets/icons/cd_drive-0.png"><span>CD-ROM</span></div>
-    <div class="desktop-icon"><img src="assets/icons/display_properties-5.png"><span>Display</span></div>
-
-    <div class="desktop-icon"><img src="assets/icons/battery-alt-0.png"><span>Battery</span></div>
-    <div class="desktop-icon"><img src="assets/icons/channels-3.png"><span>Channels</span></div>
-    <div class="desktop-icon"><img src="assets/icons/entire_network_globe-3.png"><span>Entire Network</span></div>
-
-    <div class="desktop-icon"><img src="assets/icons/appwizard-4.png"><span>App Wizard</span></div>
-    <div class="desktop-icon"><img src="assets/icons/clean_drive-5.png"><span>Local Disk</span></div>
-    <div class="desktop-icon"><img src="assets/icons/floppy_drive_5_25-3.png"><span>Floppy</span></div>
-
-    <div class="desktop-icon"><img src="assets/icons/accessibility_contrast.png"><span>High Contrast</span></div>
-    <div class="desktop-icon"><img src="assets/icons/computer-5.png"><span>Computer</span></div>
-    <div class="desktop-icon"><img src="assets/icons/globe_map-0.png"><span>World Map</span></div>
-
-    <div class="desktop-icon"><img src="assets/icons/accessibility-4.png"><span>Accessibility</span></div>
-    <div class="desktop-icon"><img src="assets/icons/desktop-2.png"><span>Desktop</span></div>
-    <div class="desktop-icon"><img src="assets/icons/internet_connection_wiz-2.png"><span>Internet Setup</span></div>
-
-    <div class="desktop-icon"><img src="assets/icons/camera3_network-4.png"><span>Network Cam</span></div>
-    <div class="desktop-icon"><img src="assets/icons/directory_business_calendar-4.png"><span>Calendar</span></div>
-    <div class="desktop-icon"><img src="assets/icons/joystick-4.png"><span>Games</span></div>
-
-    <div class="desktop-icon"><img src="assets/icons/camera3_vid-4.png"><span>Video Cam</span></div>
-    <div class="desktop-icon"><img src="assets/icons/directx.png"><span>DirectX</span></div>
-
-  </div>
-
-
-  <!-- ⭐ NEW: WELCOME POPUP WINDOW ⭐ -->
-  <div class="window" id="welcome-window">
-    <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-      Welcome <span onclick="closeWindow('welcome')">✖</span>
-    </div>
-
-    <div class="content" style="padding:14px; font-size:14px; line-height:1.4;">
-      <b>Hello!</b><br><br>
-      Welcome to my portfolio Windows.<br><br>
-      <b>Press any of the buttons on the left to get started.</b>
-    </div>
-  </div>
-
-</div>
-
-
-<!-- TASKBAR -->
-<div class="taskbar">
-  <div class="start-btn">Start</div>
-
-  <div class="task-links">
-    <a href="mailto:anmolindia2006@gmail.com">Email</a>
-    <a href="https://github.com/AnmolM-777" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/anmol-mishra-144bab328/" target="_blank">LinkedIn</a>
-  </div>
-
-  <div id="datetime"></div>
-</div>
-
-
-<!-- WINDOWS -->
-<div class="window" id="about-window">
-  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-    About <span onclick="closeWindow('about')">✖</span>
-  </div>
-  <div class="content" id="about-content"></div>
-</div>
-
-<div class="window" id="education-window">
-  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-    Education <span onclick="closeWindow('education')">✖</span>
-  </div>
-  <div class="content" id="edu-content"></div>
-</div>
-
-<div class="window" id="projects-window">
-  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-    Projects <span onclick="closeWindow('projects')">✖</span>
-  </div>
-  <iframe id="github-frame"></iframe>
-</div>
-
-<div class="window" id="skills-window">
-  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-    Skills <span onclick="closeWindow('skills')">✖</span>
-  </div>
-  <div class="content" id="skills-content"></div>
-</div>
-
-<div class="window" id="contact-window">
-  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-    Contact <span onclick="closeWindow('contact')">✖</span>
-  </div>
-  <div class="content" id="contact-content"></div>
-</div>
-
-
-<!-- CHATBOT -->
-<div class="window" id="bot-window" style="width:370px;height:300px;">
-  <div class="title-bar" onmousedown="dragStart(event,this.parentElement)">
-    Assistant <span onclick="closeWindow('bot')">✖</span>
-  </div>
-
-  <div class="content" id="botChat">
-    <b>Welcome to Anmol OS 🤖</b><br><br>
-    You can type:<br><br>
-    • <b>about</b> — who I am<br>
-    • <b>education</b> — my academics<br>
-    • <b>projects</b> — what I’ve built<br>
-    • <b>skills</b> — my tools<br>
-    • <b>contact</b> — connect with me<br>
-    • <b>help</b> — list all commands<br><br>
-    Type below to begin…
-  </div>
-
-  <div style="display:flex;border-top:1px solid #999;">
-    <input id="botInput" placeholder="Type here..."
-           style="flex:1;border:none;padding:6px;font-family:Tahoma;">
-    <button onclick="sendBot()">Send</button>
-  </div>
-</div>
-
-
-<script src="script.js"></script>
-
-<!-- Auto-open welcome window -->
-<script>
-  window.onload = function () {
-    openWindow("welcome");
-  };
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>

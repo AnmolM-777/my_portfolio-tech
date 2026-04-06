@@ -1,208 +1,225 @@
-// ==========================
-// WINDOW CONTROL
-// ==========================
-function openWindow(name) {
-  const w = document.getElementById(name + "-window");
-  if (w) {
-    w.style.display = "block";
-    w.style.zIndex = Date.now();
+// ============================================
+// Root Access — Portfolio Interactive Scripts
+// ============================================
+
+// === BOOT SEQUENCE ===
+const bootLines = [
+  'BIOS: AnmolOS v2.0.26',
+  'Checking memory... 16384 MB OK',
+  'Initializing kernel modules...',
+  'Loading display driver... [OK]',
+  'Starting network services... [OK]',
+  'Mounting /home/anmol/portfolio...',
+  'Loading projects from GitHub...',
+  '[  OK  ] Started portfolio.service',
+  '',
+  'anmol@iitj login: anmol',
+  'Password: ********',
+  '',
+  'Welcome to AnmolOS (GNU/Linux 6.1.0-iitj)',
+  '',
+  'Last login: ' + new Date().toDateString(),
+  '',
+  'Launching portfolio...'
+];
+
+function runBootSequence() {
+  const overlay = document.getElementById('boot-overlay');
+  const bootText = document.getElementById('boot-text');
+  
+  if (!overlay || !bootText) return;
+
+  let lineIndex = 0;
+  let displayed = '';
+
+  function showNextLine() {
+    if (lineIndex < bootLines.length) {
+      displayed += bootLines[lineIndex] + '\n';
+      bootText.textContent = displayed;
+      lineIndex++;
+
+      const delay = bootLines[lineIndex - 1] === '' ? 100 : 
+                    bootLines[lineIndex - 1].includes('Welcome') ? 300 :
+                    Math.random() * 80 + 40;
+      
+      setTimeout(showNextLine, delay);
+    } else {
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        initAfterBoot();
+      }, 500);
+    }
   }
+
+  showNextLine();
 }
 
-function closeWindow(name) {
-  const w = document.getElementById(name + "-window");
-  if (w) w.style.display = "none";
+// === TYPING ANIMATION ===
+const typingPhrases = [
+  'Computer Science @ IIT Jodhpur',
+  'Backend & Systems Engineer',
+  'Quantitative Finance Enthusiast',
+  'Blockchain Explorer',
+  'Open Source Contributor',
+  'echo "build openly • learn continuously"'
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingDelay = 100;
+
+function typeText() {
+  const el = document.getElementById('typed-text');
+  if (!el) return;
+
+  const currentPhrase = typingPhrases[phraseIndex];
+
+  if (isDeleting) {
+    el.textContent = currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+    typingDelay = 40;
+  } else {
+    el.textContent = currentPhrase.substring(0, charIndex + 1);
+    charIndex++;
+    typingDelay = 80 + Math.random() * 40;
+  }
+
+  if (!isDeleting && charIndex === currentPhrase.length) {
+    typingDelay = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+    typingDelay = 500;
+  }
+
+  setTimeout(typeText, typingDelay);
 }
 
-// ==========================
-// TIME
-// ==========================
-setInterval(() => {
-  const n = new Date();
-  const dt = document.getElementById("datetime");
-  if (dt) dt.innerText = n.toDateString() + " " + n.toLocaleTimeString();
-}, 1000);
+// === NAVIGATION ===
+function initNavigation() {
+  const navbar = document.getElementById('navbar');
+  const links = document.querySelectorAll('.nav-link');
+  const toggle = document.getElementById('mobile-toggle');
+  const navLinksContainer = document.getElementById('nav-links');
 
-// ==========================
-// LOAD DATA
-// ==========================
-// Optional fetches; if JSON doesn't exist, just skip
-fetch("data/profile.json").then(r => r.json()).then(d => {
-  const a = document.getElementById("about-content");
-  if (a)
-    a.innerHTML = `
-      <h3>${d.name}</h3>
-      <p>${d.interests}</p>
-      <p>${d.location}</p>
-    `;
-}).catch(e => console.log("profile.json not found, using static data"));
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
 
-fetch("data/education.json").then(r => r.json()).then(list => {
-  const edu = document.getElementById("edu-content");
-  if (edu)
-    edu.innerHTML = list.map(e => `
-      <h4>${e.institution}</h4>
-      <p><b>${e.degree}</b></p>
-      <p>${e.duration}</p>
-      <ul>
-        ${e.details.map(d => `<li>${d}</li>`).join("")}
-      </ul>
-      <hr>
-    `).join("");
-}).catch(e => console.log("education.json not found, using static data"));
+  // Mobile toggle
+  if (toggle && navLinksContainer) {
+    toggle.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('open');
+      toggle.classList.toggle('active');
+    });
+  }
 
-fetch("data/skills.json").then(r => r.json()).then(s => {
-  const sc = document.getElementById("skills-content");
-  if (sc) sc.innerHTML = s.join("<br>");
-}).catch(e => console.log("skills.json not found, using static data"));
-
-fetch("data/socials.json").then(r => r.json()).then(s => {
-  const c = document.getElementById("contact-content");
-  if (c) c.innerHTML = `<p>Email: ${s.email}</p>`;
-  const g = document.getElementById("github-frame");
-  if (g) g.src = s.github;
-}).catch(e => console.log("socials.json not found, using static data"));
-
-// ==========================
-// DESKTOP ICON SELECTION
-// ==========================
-document.querySelectorAll(".desktop-icon").forEach(icon => {
-  icon.onclick = () => {
-    document.querySelectorAll(".desktop-icon").forEach(i => i.classList.remove("selected"));
-    icon.classList.add("selected");
+  // Active link on scroll
+  const sections = document.querySelectorAll('.section');
+  const observerOptions = {
+    root: null,
+    rootMargin: '-30% 0px -70% 0px',
+    threshold: 0
   };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        links.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+
+  // Close mobile menu on link click
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinksContainer) navLinksContainer.classList.remove('open');
+      if (toggle) toggle.classList.remove('active');
+    });
+  });
+}
+
+// === SECTION REVEAL ON SCROLL ===
+function initScrollReveal() {
+  const revealSections = document.querySelectorAll('.section:not(.hero-section)');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  });
+
+  revealSections.forEach(section => revealObserver.observe(section));
+}
+
+// === SKILL BAR ANIMATION ===
+function initSkillBars() {
+  const fills = document.querySelectorAll('.skill-bar .fill');
+  
+  fills.forEach(fill => {
+    const targetWidth = fill.style.width;
+    fill.style.width = '0';
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            fill.style.width = targetWidth;
+          }, 300);
+          observer.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(fill);
+  });
+}
+
+// === SMOOTH SCROLL FOR NAV LINKS ===
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+}
+
+// === INIT EVERYTHING AFTER BOOT ===
+function initAfterBoot() {
+  typeText();
+  initNavigation();
+  initScrollReveal();
+  initSkillBars();
+  initSmoothScroll();
+}
+
+// === START ===
+document.addEventListener('DOMContentLoaded', () => {
+  runBootSequence();
 });
-
-// ==========================
-// CHATBOT
-// ==========================
-function openBot() {
-  const bot = document.getElementById("bot-window");
-  if (bot) {
-    bot.style.display = "block";
-    botReply("Hi! I'm your assistant \n\nDouble-click an icon to open sections like:\n- About\n- Education\n- Projects\n- Skills\n- Contact\n\nType 'help' to see more.");
-  }
-}
-
-function closeBot() {
-  const bot = document.getElementById("bot-window");
-  if (bot) bot.style.display = "none";
-}
-
-function sendBot() {
-  let input = document.getElementById("botInput");
-  if (!input) return;
-  let txt = input.value.toLowerCase();
-  if (!txt) return;
-
-  addBot("You: " + input.value);
-  input.value = "";
-
-  setTimeout(() => respond(txt), 400);
-}
-
-function addBot(msg) {
-  let chat = document.getElementById("botChat");
-  if (!chat) return;
-  chat.innerHTML += `<div>${msg}</div>`;
-  chat.scrollTop = chat.scrollHeight;
-}
-
-function botReply(msg) {
-  addBot("Bot: " + msg);
-}
-
-function respond(txt) {
-  if (txt.includes("help"))
-    botReply("You can open About, Education, Projects, Skills or Contact.\nTry typing: about, skills, education");
-
-  else if (txt.includes("about"))
-    botReply("Click the About icon to see who I am.");
-
-  else if (txt.includes("education"))
-    botReply("Open Education to view my academic history.");
-
-  else if (txt.includes("projects"))
-    botReply("Click Projects to see my work and GitHub profile.");
-
-  else if (txt.includes("skills"))
-    botReply("Open Skills to see what technologies I use.");
-
-  else if (txt.includes("contact"))
-    botReply("Use Contact to reach me by email, LinkedIn or GitHub.");
-
-  else if (txt.includes("who"))
-    botReply("I'm a Windows-style assistant for this portfolio.");
-
-  else if (txt.includes("hi") || txt.includes("hello"))
-    botReply("Hello, How can I help you?");
-
-  else
-    botReply("I didn't understand. Try typing 'help'.");
-}
-
-// ==========================
-// STATIC CONTENT (KEEP ALL YOUR CURRENT DATA)
-// ==========================
-document.getElementById("about-content").innerHTML = `
-<b>Name:</b> Anmol<br><br>
-I am a B.Tech Computer Science and Engineering student at IIT Jodhpur (2024–2028).
-`;
-
-document.getElementById("edu-content").innerHTML = `
-<b>IIT Jodhpur</b><br>
-B.Tech Computer Science and Engineering (2024–2028)<br><br>
-
-<b>PACE Junior Science College</b><br>
-Class 12: 92.7%<br>
-<b>Atomic Energy Central School No. 2</b><br>
-Class 10: 97.6%<br>
-`;
-
-document.getElementById("skills-content").innerHTML = `
-• C / C++<br>
-• HTML, CSS, JS<br>
-• Git & GitHub<br>
-• Python (basic)<br>
-• Rust<br>
-• ML/DL (PyTorch)<br>
-• time-series modeling<br>
-• blockchain development fundamentals<br>
-• on-chain analytics<br>
-• quant modeling<br>
-• distributed systems basics<br>
-• data engineering<br>
-• Linux/Git<br>
-• numerical methods and statistical analysis.<br>
-• Problem Solving
-`;
-
-document.getElementById("contact-content").innerHTML = `
-Email: anmolindia2006@gmail.com<br>
-LinkedIn: https://www.linkedin.com/in/anmol-mishra-144bab328/<br>
-GitHub: github.com/AnmolM-777
-`;
-
-// ==========================
-// DRAGGING WINDOWS
-// ==========================
-let dragObj = null, offsetX = 0, offsetY = 0;
-
-function dragStart(e, win) {
-  dragObj = win;
-  offsetX = e.clientX - win.offsetLeft;
-  offsetY = e.clientY - win.offsetTop;
-  document.onmousemove = dragMove;
-  document.onmouseup = dragEnd;
-}
-
-function dragMove(e) {
-  if (!dragObj) return;
-  dragObj.style.left = (e.clientX - offsetX) + "px";
-  dragObj.style.top = (e.clientY - offsetY) + "px";
-}
-
-function dragEnd() {
-  dragObj = null;
-  document.onmousemove = null;
-}

@@ -1,114 +1,49 @@
-# 🪟 My Portfolio — A Retro Windows-Style Portfolio
+# 🖥️ anmol@iitj — Portfolio
 
-Welcome to **Anmol's Portfolio**, a fully interactive Windows-95-inspired portfolio website.  
-It simulates a classic desktop environment with draggable windows, icons, a taskbar,  
-and a built-in assistant — creating a fun and nostalgic way to explore who I am.
+> A Linux terminal-themed personal portfolio built with vanilla HTML, CSS, and JavaScript.
 
-👉 **Live Site:** https://my-portfolio-tech-eight.vercel.app/  
-👉 **Tech Stack:** Pure HTML, CSS, JavaScript (no frameworks)
-
----
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-anmol--portfolio-00ff41?style=for-the-badge&labelColor=0a0a0f)](https://my-portfolio-tech-eight.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-AnmolM--777-181717?style=for-the-badge&logo=github)](https://github.com/AnmolM-777)
 
 ## ✨ Features
 
-- 🖥 **Authentic Windows-95 desktop UI**  
-  Draggable windows, taskbar, icons, popups — all recreated manually.
+- 🐧 **Linux Terminal Aesthetic** — Boot sequence, neofetch, git log, tree view
+- ⚡ **Zero dependencies** — Pure HTML + CSS + JS, no frameworks
+- 🎨 **Smooth animations** — Typing effect, scroll reveals, skill bar animations
+- 📱 **Fully responsive** — Works on mobile, tablet, and desktop
+- 🌙 **Dark mode only** — Easy on the eyes, terminal-green accents
 
-- 📁 **Interactive portfolio windows**  
-  Double-click system icons to open:
-  - About  
-  - Education  
-  - Projects  
-  - Skills  
-  - Contact  
+## 🏗️ Sections
 
-- 🤖 **Built-in Assistant**  
-  A chatbot-style window that responds to typed commands like:
-  - `about`
-  - `education`
-  - `skills`
-  - `contact`
-  - `help`
+| Section | Style | Description |
+|---------|-------|-------------|
+| **Hero** | Terminal prompt | ASCII art name + typing animation |
+| **About** | `neofetch` | System info-style profile |
+| **Education** | `git log` | Commit timeline of academic history |
+| **Projects** | File manager | Curated project cards with tech badges |
+| **Skills** | `tree` | Directory tree with progress bars |
+| **Contact** | `cat` | Social links + resume download |
 
-- 🎨 **Pixel-perfect icon system** with retro styling  
-- 📦 **Lightweight static website** — deploys instantly on Vercel  
-- 🎉 **Welcome popup** when the site loads  
+## 🚀 Quick Start
 
----
-
-## 🗂 Project Structure
-project-root/
-│
-├── index.html # Main UI + windows + desktop
-├── style.css # Windows theme styling
-├── script.js # Window logic, assistant, popup
-│
-├── assets/
-│ ├── icons/ # All Windows-style icons
-│ ├── screenshots/ # Add your own screenshots
-│ └── ...
-│
-├── README.md
-└── vercel.json # Optional — for static deployment config
-
----
-
-## ⚙️ Setup Instructions (Local Development)
-1️⃣ Clone the repository
+```bash
+# Clone the repo
 git clone https://github.com/AnmolM-777/my_portfolio-tech.git
 cd my_portfolio-tech
 
-2️⃣ Run locally
-Option A — open index.html directly in a browser.
-Option B — recommended (local server):
-# Python 3
-python3 -m http.server
-Then visit:
-http://localhost:8000
+# Serve locally
+python3 -m http.server 8888
+# Open http://localhost:8888
+```
 
-🚀 Deploying on Vercel
-1️⃣ Install Vercel CLI
-npm i -g vercel
-2️⃣ Deploy
-vercel
-3️⃣ Production deploy
-vercel --prod
+## 📄 Resume
 
-GitHub Auto Deploy
-If you connect your repo to Vercel:
-Every push to main redeploys automatically
-PRs generate preview deployments
+Place your resume PDF at `assets/resume.pdf` — the site links to it from the hero section and contact section.
 
-🛠 Customization
-🎨 Change Icons
-Replace files in:
-assets/icons/
+## 📝 License
 
-📝 Edit Window Content
-Inside index.html, modify:
-#about-window
-#education-window
-#skills-window
-#projects-window
-#contact-window
+Open source. Feel free to fork and customize.
 
-🤖 Customize Assistant Responses
-Modify the chatbot logic in:
-script.js → sendBot()
+---
 
-💬 Change Welcome Popup Message
-Located in:
-#welcome-window
-
-🧰 Tech Stack
-Frontend: HTML5, CSS3, JavaScript
-Design: Retro Windows-95 theming
-Deployment: Vercel
-Dependencies: None — zero frameworks
-
-👤 Author
-
-Anmol Mishra
-📧 Email: anmolindia2006@gmail.com
-🔗 LinkedIn: https://www.linkedin.com/in/anmol-mishra-144bab328/
-💻 GitHub: https://github.com/AnmolM-777
+*Built with `</>` and ☕ by [Anmol Mishra](https://github.com/AnmolM-777)*
