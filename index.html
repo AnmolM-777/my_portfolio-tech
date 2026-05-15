@@ -7,17 +7,18 @@
   <meta name="description" content="Computer Science at IIT Jodhpur. Backend and systems engineering, quantitative finance, and open-source contributions." />
   <meta property="og:title" content="Anmol Mishra — Portfolio" />
   <meta property="og:description" content="CS @ IIT Jodhpur. Backend & Systems. Quant & Open-Source." />
-  <meta name="theme-color" content="#0a0a0a" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23804040'%3EA%3C/text%3E%3C/svg%3E" />
-
-  <!-- Fonts -->
+  <meta name="theme-color" content="#0a0f1a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%2300cc66'%3EA%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Blue edge glows -->
+  <div class="hero-glow-left"></div>
+  <div class="hero-glow-right"></div>
 
   <!-- ═══════════ NAVIGATION ═══════════ -->
   <nav class="nav" id="nav">
@@ -35,24 +36,36 @@
   </nav>
 
   <!-- ═══════════ HERO ═══════════ -->
-  <section class="hero section--dark" id="home">
-    <div class="hero__glow" id="heroGlow"></div>
-    <div class="hero__content">
-      <div class="hero__terminal reveal">
-        <span class="prompt">anmol@iitj</span>:<span style="color:var(--text-secondary-light)">~</span>$&nbsp;<span id="typedCommand"></span><span class="hero__cursor"></span>
+  <section class="section--dark" id="home">
+    <div class="hero">
+      <div class="hero__content">
+        <div class="hero__terminal reveal">
+          <span class="prompt">anmol@iitj</span>:<span style="color:var(--text-secondary-light)">~</span>$&nbsp;<span id="typedCommand"></span><span class="hero__cursor"></span>
+        </div>
+        <h1 class="hero__headline reveal">
+          Backend.<br />
+          Systems.<br />
+          <span class="accent">Quant.</span>
+        </h1>
+        <p class="hero__sub reveal">
+          Computer Science undergraduate at IIT Jodhpur building at the intersection of software engineering, quantitative finance, and distributed systems.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#projects" class="btn btn--primary">View Projects <span class="arrow">&rarr;</span></a>
+          <a href="https://my-portfolio-tech-eight.vercel.app/assets/resume.pdf" target="_blank" rel="noopener" class="btn">Resume <span class="arrow">&nearr;</span></a>
+          <a href="https://github.com/AnmolM-777" target="_blank" rel="noopener" class="btn">GitHub <span class="arrow">&nearr;</span></a>
+        </div>
       </div>
-      <h1 class="hero__headline reveal">
-        Backend.<br />
-        Systems.<br />
-        <span class="accent">Quant.</span>
-      </h1>
-      <p class="hero__sub reveal">
-        Computer Science undergraduate at IIT Jodhpur building at the intersection of software engineering, quantitative finance, and distributed systems.
-      </p>
-      <div class="hero__actions reveal">
-        <a href="#projects" class="btn btn--primary">View Projects <span class="arrow">&rarr;</span></a>
-        <a href="https://my-portfolio-tech-eight.vercel.app/assets/resume.pdf" target="_blank" rel="noopener" class="btn">Resume <span class="arrow">&nearr;</span></a>
-        <a href="https://github.com/AnmolM-777" target="_blank" rel="noopener" class="btn">GitHub <span class="arrow">&nearr;</span></a>
+      <div class="hero__image-wrapper reveal">
+        <div class="window-chrome">
+          <div class="window-bar">
+            <span class="window-dot window-dot--red"></span>
+            <span class="window-dot window-dot--yellow"></span>
+            <span class="window-dot window-dot--green"></span>
+            <span class="window-title">~ / workspace</span>
+          </div>
+          <img src="hero-bg.png" alt="Linux penguin coding at night" />
+        </div>
       </div>
     </div>
     <div class="hero__scroll-hint">
@@ -67,27 +80,33 @@
       <div class="section-label reveal">About</div>
       <div class="about__grid">
         <div class="about__neofetch reveal">
-          <span class="nf-key">anmol</span>@iitj<br />
-          <div class="nf-separator"></div>
-          <span class="nf-key">OS</span>: IIT Jodhpur x86_64<br />
-          <span class="nf-key">Host</span>: B.Tech CSE (2024 -- 2028)<br />
-          <span class="nf-key">Kernel</span>: Computer Science & Engineering<br />
-          <span class="nf-key">Uptime</span>: 2+ years of building<br />
-          <span class="nf-key">Shell</span>: bash / zsh<br />
-          <span class="nf-key">DE</span>: Full-Stack + Systems<br />
-          <span class="nf-key">Terminal</span>: VS Code / Vim<br />
-          <span class="nf-key">CPU</span>: Backend & Web Systems<br />
-          <span class="nf-key">GPU</span>: Quant Finance & AI/ML<br />
-          <span class="nf-key">Memory</span>: Blockchain / Open-Source
+          <div class="window-chrome window-chrome--light">
+            <div class="window-bar">
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--yellow"></span>
+              <span class="window-dot window-dot--green"></span>
+              <span class="window-title">neofetch</span>
+            </div>
+            <div class="window-body">
+              <span class="nf-key">anmol</span>@iitj<br />
+              <div class="nf-separator"></div>
+              <span class="nf-key">OS</span>: IIT Jodhpur x86_64<br />
+              <span class="nf-key">Host</span>: B.Tech CSE (2024 -- 2028)<br />
+              <span class="nf-key">Kernel</span>: Computer Science & Engineering<br />
+              <span class="nf-key">Uptime</span>: 2+ years of building<br />
+              <span class="nf-key">Shell</span>: bash / zsh<br />
+              <span class="nf-key">DE</span>: Full-Stack + Systems<br />
+              <span class="nf-key">Terminal</span>: VS Code / Vim<br />
+              <span class="nf-key">CPU</span>: Backend & Web Systems<br />
+              <span class="nf-key">GPU</span>: Quant Finance & AI/ML<br />
+              <span class="nf-key">Memory</span>: Blockchain / Open-Source
+            </div>
+          </div>
         </div>
         <div class="about__text reveal">
           <h2>Building at the intersection of systems and finance.</h2>
-          <p>
-            I am a Computer Science undergraduate at the Indian Institute of Technology, Jodhpur, interested in how software, finance, and systems engineering intersect. I build things that are simple, reliable, and actually useful.
-          </p>
-          <p>
-            My current focus areas include backend architecture, quantitative modeling, on-chain analytics, and contributing to open-source ecosystems. I approach problems with an engineering-first mindset -- favoring robustness over novelty.
-          </p>
+          <p>I am a Computer Science undergraduate at the Indian Institute of Technology, Jodhpur, interested in how software, finance, and systems engineering intersect. I build things that are simple, reliable, and actually useful.</p>
+          <p>My current focus areas include backend architecture, quantitative modeling, on-chain analytics, and contributing to open-source ecosystems. I approach problems with an engineering-first mindset -- favoring robustness over novelty.</p>
           <div class="about__stats reveal-stagger">
             <div class="stat">
               <div class="stat__number">5+</div>
@@ -150,12 +169,10 @@
   </section>
 
   <!-- ═══════════ PROJECTS ═══════════ -->
-  <section class="section--light" id="projects">
+  <section class="section--dark" id="projects">
     <div class="projects container">
       <div class="section-label reveal">ls ~/projects</div>
       <div class="project__list reveal-stagger">
-
-        <!-- Project 01 -->
         <div class="project__card">
           <div class="project__info">
             <h3><span class="project-idx">01</span> SSO IITJ</h3>
@@ -172,8 +189,6 @@
             <a href="https://github.com/AnmolM-777/sso_backend" target="_blank" rel="noopener" class="project__link">Backend <span class="arrow">&nearr;</span></a>
           </div>
         </div>
-
-        <!-- Project 02 -->
         <div class="project__card">
           <div class="project__info">
             <h3><span class="project-idx">02</span> Spac3D</h3>
@@ -189,8 +204,6 @@
             <a href="https://github.com/AnmolM-777/Spac3D" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
           </div>
         </div>
-
-        <!-- Project 03 -->
         <div class="project__card">
           <div class="project__info">
             <h3><span class="project-idx">03</span> IITJ Senate Portal</h3>
@@ -205,8 +218,6 @@
             <a href="https://github.com/AnmolM-777/iitjsenateportal" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
           </div>
         </div>
-
-        <!-- Project 04 -->
         <div class="project__card">
           <div class="project__info">
             <h3><span class="project-idx">04</span> Crypto Wallet Analyzer</h3>
@@ -222,8 +233,6 @@
             <a href="https://github.com/AnmolM-777/crypto-wallet-analyzer" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
           </div>
         </div>
-
-        <!-- Project 05 -->
         <div class="project__card">
           <div class="project__info">
             <h3><span class="project-idx">05</span> Quant Risk Engine</h3>
@@ -239,7 +248,6 @@
             <a href="https://github.com/AnmolM-777/Quant-Enthusiasts-Risk-Engine" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -250,44 +258,84 @@
       <div class="section-label reveal">tree ~/skills</div>
       <div class="skills__grid reveal-stagger">
         <div class="skills__category">
-          <h3><span class="tree-icon">/</span> Languages</h3>
-          <div class="skills__tags">
-            <span class="skill-tag">C / C++</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Rust</span>
+          <div class="window-chrome">
+            <div class="window-bar">
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--yellow"></span>
+              <span class="window-dot window-dot--green"></span>
+              <span class="window-title">languages/</span>
+            </div>
+            <div class="window-body">
+              <h3>Languages</h3>
+              <div class="skills__tags">
+                <span class="skill-tag">C / C++</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Rust</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="skills__category">
-          <h3><span class="tree-icon">/</span> Frameworks & Libraries</h3>
-          <div class="skills__tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Vite</span>
-            <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">Three.js</span>
-            <span class="skill-tag">PyTorch</span>
+          <div class="window-chrome">
+            <div class="window-bar">
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--yellow"></span>
+              <span class="window-dot window-dot--green"></span>
+              <span class="window-title">frameworks/</span>
+            </div>
+            <div class="window-body">
+              <h3>Frameworks & Libraries</h3>
+              <div class="skills__tags">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vite</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">Three.js</span>
+                <span class="skill-tag">PyTorch</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="skills__category">
-          <h3><span class="tree-icon">/</span> Tools & Infrastructure</h3>
-          <div class="skills__tags">
-            <span class="skill-tag">Git / GitHub</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">Bash Scripting</span>
+          <div class="window-chrome">
+            <div class="window-bar">
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--yellow"></span>
+              <span class="window-dot window-dot--green"></span>
+              <span class="window-title">devops/</span>
+            </div>
+            <div class="window-body">
+              <h3>Tools & Infrastructure</h3>
+              <div class="skills__tags">
+                <span class="skill-tag">Git / GitHub</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">Bash Scripting</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="skills__category">
-          <h3><span class="tree-icon">/</span> Domains</h3>
-          <div class="skills__tags">
-            <span class="skill-tag">Quant Modeling</span>
-            <span class="skill-tag">Time-Series Analysis</span>
-            <span class="skill-tag">Blockchain / UTXO</span>
-            <span class="skill-tag">On-chain Analytics</span>
-            <span class="skill-tag">ML / Deep Learning</span>
-            <span class="skill-tag">Distributed Systems</span>
+          <div class="window-chrome">
+            <div class="window-bar">
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--yellow"></span>
+              <span class="window-dot window-dot--green"></span>
+              <span class="window-title">domains/</span>
+            </div>
+            <div class="window-body">
+              <h3>Domains</h3>
+              <div class="skills__tags">
+                <span class="skill-tag">Quant Modeling</span>
+                <span class="skill-tag">Time-Series Analysis</span>
+                <span class="skill-tag">Blockchain / UTXO</span>
+                <span class="skill-tag">On-chain Analytics</span>
+                <span class="skill-tag">ML / Deep Learning</span>
+                <span class="skill-tag">Distributed Systems</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
