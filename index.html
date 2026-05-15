@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anmol Mishra — Portfolio</title>
+  <meta name="description" content="Computer Science at IIT Jodhpur. Backend and systems engineering, quantitative finance, and open-source contributions." />
+  <meta property="og:title" content="Anmol Mishra — Portfolio" />
+  <meta property="og:description" content="CS @ IIT Jodhpur. Backend & Systems. Quant & Open-Source." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23804040'%3EA%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════ NAVIGATION ═══════════ -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav__logo"><span>anmol</span>@iitj</a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero section--dark" id="home">
+    <div class="hero__glow" id="heroGlow"></div>
+    <div class="hero__content">
+      <div class="hero__terminal reveal">
+        <span class="prompt">anmol@iitj</span>:<span style="color:var(--text-secondary-light)">~</span>$&nbsp;<span id="typedCommand"></span><span class="hero__cursor"></span>
+      </div>
+      <h1 class="hero__headline reveal">
+        Backend.<br />
+        Systems.<br />
+        <span class="accent">Quant.</span>
+      </h1>
+      <p class="hero__sub reveal">
+        Computer Science undergraduate at IIT Jodhpur building at the intersection of software engineering, quantitative finance, and distributed systems.
+      </p>
+      <div class="hero__actions reveal">
+        <a href="#projects" class="btn btn--primary">View Projects <span class="arrow">&rarr;</span></a>
+        <a href="https://my-portfolio-tech-eight.vercel.app/assets/resume.pdf" target="_blank" rel="noopener" class="btn">Resume <span class="arrow">&nearr;</span></a>
+        <a href="https://github.com/AnmolM-777" target="_blank" rel="noopener" class="btn">GitHub <span class="arrow">&nearr;</span></a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section class="section--light" id="about">
+    <div class="about container">
+      <div class="section-label reveal">About</div>
+      <div class="about__grid">
+        <div class="about__neofetch reveal">
+          <span class="nf-key">anmol</span>@iitj<br />
+          <div class="nf-separator"></div>
+          <span class="nf-key">OS</span>: IIT Jodhpur x86_64<br />
+          <span class="nf-key">Host</span>: B.Tech CSE (2024 -- 2028)<br />
+          <span class="nf-key">Kernel</span>: Computer Science & Engineering<br />
+          <span class="nf-key">Uptime</span>: 2+ years of building<br />
+          <span class="nf-key">Shell</span>: bash / zsh<br />
+          <span class="nf-key">DE</span>: Full-Stack + Systems<br />
+          <span class="nf-key">Terminal</span>: VS Code / Vim<br />
+          <span class="nf-key">CPU</span>: Backend & Web Systems<br />
+          <span class="nf-key">GPU</span>: Quant Finance & AI/ML<br />
+          <span class="nf-key">Memory</span>: Blockchain / Open-Source
+        </div>
+        <div class="about__text reveal">
+          <h2>Building at the intersection of systems and finance.</h2>
+          <p>
+            I am a Computer Science undergraduate at the Indian Institute of Technology, Jodhpur, interested in how software, finance, and systems engineering intersect. I build things that are simple, reliable, and actually useful.
+          </p>
+          <p>
+            My current focus areas include backend architecture, quantitative modeling, on-chain analytics, and contributing to open-source ecosystems. I approach problems with an engineering-first mindset -- favoring robustness over novelty.
+          </p>
+          <div class="about__stats reveal-stagger">
+            <div class="stat">
+              <div class="stat__number">5+</div>
+              <div class="stat__label">Projects Shipped</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number">17</div>
+              <div class="stat__label">Repositories</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number">2+</div>
+              <div class="stat__label">Years Building</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ EDUCATION ═══════════ -->
+  <section class="section--dark" id="education">
+    <div class="education container">
+      <div class="section-label reveal">git log --education</div>
+      <div class="edu__timeline reveal-stagger">
+        <div class="edu__entry">
+          <div class="edu__meta">
+            <span class="commit-hash">2024 -- Present</span>
+            Author: Anmol Mishra
+          </div>
+          <div class="edu__content">
+            <h3>B.Tech Computer Science & Engineering</h3>
+            <div class="institution">Indian Institute of Technology, Jodhpur</div>
+            <div class="detail">Currently in 2nd year -- Focus: Systems, Quant, Blockchain</div>
+          </div>
+        </div>
+        <div class="edu__entry">
+          <div class="edu__meta">
+            <span class="commit-hash">2022 -- 2024</span>
+            Author: Anmol Mishra
+          </div>
+          <div class="edu__content">
+            <h3>Higher Secondary (Class XII) -- 92.7%</h3>
+            <div class="institution">PACE Junior Science College, Mumbai</div>
+            <div class="detail">Physics, Chemistry, Mathematics</div>
+          </div>
+        </div>
+        <div class="edu__entry">
+          <div class="edu__meta">
+            <span class="commit-hash">2022</span>
+            Author: Anmol Mishra
+          </div>
+          <div class="edu__content">
+            <h3>Secondary (Class X) -- 97.6%</h3>
+            <div class="institution">Atomic Energy Central School No. 2</div>
+            <div class="detail">CBSE Board</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROJECTS ═══════════ -->
+  <section class="section--light" id="projects">
+    <div class="projects container">
+      <div class="section-label reveal">ls ~/projects</div>
+      <div class="project__list reveal-stagger">
+
+        <!-- Project 01 -->
+        <div class="project__card">
+          <div class="project__info">
+            <h3><span class="project-idx">01</span> SSO IITJ</h3>
+            <p>Enterprise-grade single sign-on system integrating IIT Jodhpur services. Unified authentication across multiple systems with token-based security, reducing duplicate workflows.</p>
+            <div class="project__tags">
+              <span class="tag">React</span>
+              <span class="tag">Python</span>
+              <span class="tag">OAuth</span>
+              <span class="tag">JWT</span>
+            </div>
+          </div>
+          <div class="project__links">
+            <a href="https://github.com/AnmolM-777/sso_frontend" target="_blank" rel="noopener" class="project__link">Frontend <span class="arrow">&nearr;</span></a>
+            <a href="https://github.com/AnmolM-777/sso_backend" target="_blank" rel="noopener" class="project__link">Backend <span class="arrow">&nearr;</span></a>
+          </div>
+        </div>
+
+        <!-- Project 02 -->
+        <div class="project__card">
+          <div class="project__info">
+            <h3><span class="project-idx">02</span> Spac3D</h3>
+            <p>Photograph a room and reorganize it in 3D space. Computer vision for depth estimation, NLP for furniture generation, and Three.js for interactive 3D rendering and scene staging.</p>
+            <div class="project__tags">
+              <span class="tag">Three.js</span>
+              <span class="tag">MiDaS</span>
+              <span class="tag">DETR</span>
+              <span class="tag">React</span>
+            </div>
+          </div>
+          <div class="project__links">
+            <a href="https://github.com/AnmolM-777/Spac3D" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
+          </div>
+        </div>
+
+        <!-- Project 03 -->
+        <div class="project__card">
+          <div class="project__info">
+            <h3><span class="project-idx">03</span> IITJ Senate Portal</h3>
+            <p>Full-featured portal supporting institutional and academic workflows. Collaborative PR-driven development with structured UI and backend interaction for real users.</p>
+            <div class="project__tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="project__links">
+            <a href="https://github.com/AnmolM-777/iitjsenateportal" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
+          </div>
+        </div>
+
+        <!-- Project 04 -->
+        <div class="project__card">
+          <div class="project__info">
+            <h3><span class="project-idx">04</span> Crypto Wallet Analyzer</h3>
+            <p>On-chain analytics tool for cryptocurrency wallets. Analyzes transaction patterns, portfolio composition, and risk metrics using blockchain data across multiple chains.</p>
+            <div class="project__tags">
+              <span class="tag">Python</span>
+              <span class="tag">Blockchain</span>
+              <span class="tag">UTXO</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </div>
+          <div class="project__links">
+            <a href="https://github.com/AnmolM-777/crypto-wallet-analyzer" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
+          </div>
+        </div>
+
+        <!-- Project 05 -->
+        <div class="project__card">
+          <div class="project__info">
+            <h3><span class="project-idx">05</span> Quant Risk Engine</h3>
+            <p>Computational engine for quantitative risk concepts. Implements risk/return models, Monte Carlo simulations, and statistical analysis for financial decision-making.</p>
+            <div class="project__tags">
+              <span class="tag">Python</span>
+              <span class="tag">Monte Carlo</span>
+              <span class="tag">Statistics</span>
+              <span class="tag">Finance</span>
+            </div>
+          </div>
+          <div class="project__links">
+            <a href="https://github.com/AnmolM-777/Quant-Enthusiasts-Risk-Engine" target="_blank" rel="noopener" class="project__link">Source <span class="arrow">&nearr;</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SKILLS ═══════════ -->
+  <section class="section--dark" id="skills">
+    <div class="skills container">
+      <div class="section-label reveal">tree ~/skills</div>
+      <div class="skills__grid reveal-stagger">
+        <div class="skills__category">
+          <h3><span class="tree-icon">/</span> Languages</h3>
+          <div class="skills__tags">
+            <span class="skill-tag">C / C++</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Rust</span>
+          </div>
+        </div>
+        <div class="skills__category">
+          <h3><span class="tree-icon">/</span> Frameworks & Libraries</h3>
+          <div class="skills__tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Vite</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Three.js</span>
+            <span class="skill-tag">PyTorch</span>
+          </div>
+        </div>
+        <div class="skills__category">
+          <h3><span class="tree-icon">/</span> Tools & Infrastructure</h3>
+          <div class="skills__tags">
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Bash Scripting</span>
+          </div>
+        </div>
+        <div class="skills__category">
+          <h3><span class="tree-icon">/</span> Domains</h3>
+          <div class="skills__tags">
+            <span class="skill-tag">Quant Modeling</span>
+            <span class="skill-tag">Time-Series Analysis</span>
+            <span class="skill-tag">Blockchain / UTXO</span>
+            <span class="skill-tag">On-chain Analytics</span>
+            <span class="skill-tag">ML / Deep Learning</span>
+            <span class="skill-tag">Distributed Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section class="section--light" id="contact">
+    <div class="contact container">
+      <div class="section-label reveal">cat ~/contact.md</div>
+      <h2 class="contact__heading reveal">Get in touch.</h2>
+      <p class="contact__sub reveal">Open to conversations about systems engineering, quantitative finance, open-source collaboration, or interesting problems worth solving.</p>
+      <div class="contact__grid reveal-stagger">
+        <a href="mailto:anmolindia2006@gmail.com" class="contact__card">
+          <div>
+            <div class="contact__card-label">Email</div>
+            <div class="contact__card-value">anmolindia2006@gmail.com</div>
+          </div>
+          <span class="arrow">&nearr;</span>
+        </a>
+        <a href="https://github.com/AnmolM-777" target="_blank" rel="noopener" class="contact__card">
+          <div>
+            <div class="contact__card-label">GitHub</div>
+            <div class="contact__card-value">AnmolM-777</div>
+          </div>
+          <span class="arrow">&nearr;</span>
+        </a>
+        <a href="https://www.linkedin.com/in/anmol-mishra-144bab328/" target="_blank" rel="noopener" class="contact__card">
+          <div>
+            <div class="contact__card-label">LinkedIn</div>
+            <div class="contact__card-value">anmol-mishra</div>
+          </div>
+          <span class="arrow">&nearr;</span>
+        </a>
+        <a href="https://my-portfolio-tech-eight.vercel.app/assets/resume.pdf" target="_blank" rel="noopener" class="contact__card">
+          <div>
+            <div class="contact__card-label">Resume</div>
+            <div class="contact__card-value">Download PDF</div>
+          </div>
+          <span class="arrow">&nearr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer section--dark">
+    <div class="container footer__inner">
+      <span class="footer__copy">2026 Anmol Mishra. All rights reserved.</span>
+      <a href="https://github.com/AnmolM-777/my_portfolio-tech" target="_blank" rel="noopener" class="footer__source">Source Code &nearr;</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
